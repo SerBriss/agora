@@ -1,4 +1,4 @@
-package com.serbriss.agora;
+package com.serbriss.agora.controller;
 
 import com.serbriss.agora.domain.Message;
 import com.serbriss.agora.repos.MessagesRepository;
@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-public class GreetingController {
+public class MainController {
     @Autowired
     private MessagesRepository messageRepo;
 
