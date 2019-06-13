@@ -17,7 +17,7 @@ public class GreetingController {
     @Autowired
     private MessagesRepository messageRepo;
 
-    @GetMapping("/greeting")
+    @GetMapping("/")
     public String greeting(Map<String, Object> model) {
         return "greeting";
     }
@@ -30,7 +30,7 @@ public class GreetingController {
     }
 
     @PostMapping("/main")
-    public String addMessage(@RequestParam String text, @RequestParam String tag, Map<String, Object> model){
+    public String add(@RequestParam String text, @RequestParam String tag, Map<String, Object> model){
         Message message = new Message(text, tag);
 
         messageRepo.save(message);
