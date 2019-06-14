@@ -26,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/").permitAll()
+                    .antMatchers("/", "/registration").permitAll()
                     .anyRequest().authenticated()
                 .and()
                     .formLogin()
@@ -44,6 +44,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .dataSource(dataSource)
                 .passwordEncoder(NoOpPasswordEncoder.getInstance())
                 .usersByUsernameQuery("select username, password, active from site_user where username=?")
-        .authoritiesByUsernameQuery("select u.username, ur.roles from site_user u inner join user_role ur on u.id = site_user.id where u.username=?");
+        .authoritiesByUsernameQuery("select u.username, ur.roles from site_user u inner join user_role ur on u.id = ur.user_id where u.username=?");
     }
 }
