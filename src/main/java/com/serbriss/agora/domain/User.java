@@ -1,11 +1,12 @@
 package com.serbriss.agora.domain;
 
-import jdk.jfr.Enabled;
+
+
 
 import javax.persistence.*;
 import java.util.Set;
 
-@Enabled
+@Entity
 @Table(name = "site_user")
 public class User {
     public Long getId() {
