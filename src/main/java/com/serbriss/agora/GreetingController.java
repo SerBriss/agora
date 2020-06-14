@@ -1,5 +1,6 @@
 package com.serbriss.agora;
 
+import ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,4 +17,9 @@ public class GreetingController {
         return "greeting";
     }
 
+    @GetMapping
+    public String main(Map<String, Object> model){
+        model.put("some", "Here we go again!");
+        return "main";
+    }
 }
